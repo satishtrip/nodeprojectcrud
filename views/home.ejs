@@ -59,14 +59,28 @@
              </div> 
             </form>
             <br><br>
-            <table class="ui table">
+            <table class="ui table green" >
                 <thead>
-                    <th>
-                        Team Name
-                    </th>
-                    <th>Players</th>
-                    <th>Coach</th>
+                    <tr>
+                        <th>Team Name</th>
+                        <th>Players</th>
+                        <th>Coach</th>
+                        <th >Edit</th>
+                        <th>Delete</th>
+                    </tr>
                 </thead>
+                <tbody>
+                    <% teams.forEach((team)=>{%>
+                        <tr>
+                            <td id="teamName"><%- team.name %></td>
+                            <td id="teamPlayers"><%- team.players %></td>
+                            <td id="teamCoach"><%- team.coach %></td>
+                            <td><a class="ui button green editBtn" href="/edit/<%= team._id %>"><i class="edit white icon"></i></a></td>
+                            <td><a class="ui button green actnBtn" href="/delete/<%= team._id %>"><i id="delete" class="minus red icon"></i></a></td>
+                        </tr>
+                      <% }); %>
+                </tbody>
+
             </table>
         </div>
     </div>
